@@ -1,0 +1,156 @@
+/* 全局CSS */
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    list-style: none;
+}
+
+#app .el-header {
+    padding: 0;
+}
+
+#app .el-main {
+    min-height: 300px;
+    padding: 20px 0;
+}
+
+#app .el-footer {
+    padding: 0;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+/* 全局CSS END */
+
+/* 顶部导航栏CSS */
+.topbar {
+    height: 40px;
+    background-color: #3d3d3d;
+    margin-bottom: 20px;
+}
+
+.topbar .nav {
+    width: 1225px;
+    margin: 0 auto;
+}
+
+.topbar .nav ul {
+    float: right;
+}
+
+.topbar .nav li {
+    float: left;
+    height: 40px;
+    color: #b0b0b0;
+    font-size: 14px;
+    text-align: center;
+    line-height: 40px;
+    margin-left: 20px;
+}
+
+.topbar .nav .sep {
+    color: #b0b0b0;
+    font-size: 12px;
+    margin: 0 5px;
+}
+
+.topbar .nav li .el-button {
+    color: #b0b0b0;
+}
+
+.topbar .nav .el-button:hover {
+    color: #fff;
+}
+
+.topbar .nav li a {
+    color: #b0b0b0;
+}
+
+.topbar .nav a:hover {
+    color: #fff;
+}
+
+.topbar .nav .shopCart {
+    width: 120px;
+    background: #424242;
+}
+
+.topbar .nav .shopCart:hover {
+    background: #fff;
+}
+
+.topbar .nav .shopCart:hover a {
+    color: #ff6700;
+}
+
+.topbar .nav .shopCart-full {
+    width: 120px;
+    background: #ff6700;
+}
+
+.topbar .nav .shopCart-full a {
+    color: white;
+}
+
+/* 顶部导航栏CSS END */
+
+.header nav {
+    background-color: #fff;
+    height: 60px;
+    max-width: 1225px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.header .logo img {
+    height: 60px;
+    width: 60px;
+}
+
+.header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    display: flex;
+}
+
+.header li {
+
+    margin: 0 20px;
+
+}
+
+.header li a {
+    display: block;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+    /* margin: 0 20px; */
+    padding: 20px 20px;
+    position: relative;
+}
+
+.header li a.active {
+    border-bottom: 3px solid rgb(40,121,255);
+}
+
+.header li a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background-color: rgb(40,121,255);
+}
+
+
+/* 底栏容器CSS END */

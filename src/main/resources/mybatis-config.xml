@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    
+    <settings>
+<!--        开启驼峰  开启后只要数据库当中的字段和java当中的字段属性名字母相同就可以  不管中间有多少下划线-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    
+    
+    <!--    mybatis 配置文件  -->
+    <!--    1. 别名  -->
+    <typeAliases>
+        <package name="com.example.lanqiao0327ssm.pojo"/>
+    </typeAliases>
+
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
+
+    <!--   2. xml文件位置 -->
+    <mappers>
+        <package name="com.example.lanqiao0327ssm.mapper"/>
+    </mappers>
+
+
+
+</configuration>

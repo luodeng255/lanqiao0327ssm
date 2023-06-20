@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lanqiao0327ssm.mapper.ProductMapper">
+    <!--与接口同名-->
+
+    <resultMap id="productMap" type="product">
+        <id column="product_id" property="productId"/>
+        <result column="product_name" property="productName"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="product_title" property="productTitle"/>
+        <result column="product_intro" property="productIntro"/>
+        <result column="product_picture" property="productPicture"/>
+        <result column="product_price" property="productPrice"/>
+        <result column="product_selling_price" property="productSellingPrice"/>
+        <result column="product_num" property="productNum"/>
+        <result column="product_sales" property="productSales"/>
+
+
+        <association property="category" javaType="com.example.lanqiao0327ssm.pojo.Category">
+            <id column="category_id" property="categoryId"/>
+            <id column="category_name" property="categoryName"/>
+        </association>
+
+
+    </resultMap>
+    <select id="queryAll" resultMap="productMap">
+        select *
+        from product,
+             category
+        where product.category_id = category.category_id
+        order by product.product_id desc
+    </select>
+
+    <select id="queryBySearchBean" resultMap="productMap">
+        select * from product p,category c
+        <where>
+            p.category_id=c.category_id
+            <if test="productId != null and productId !='' ">
+                and p.product_id = #{productId}
+            </if>
+            <if test="productName != null and productName !='' ">
+                and p.product_name like '%${productName}%'
+            </if>
+            <if test="minPrice != null and minPrice !='' ">
+                -- 销售价格 大于等于 用户输入的最小值 转印字符
+                and p.product_selling_price &gt; #{minPrice}
+            </if>
+            <if test="maxPrice != null and maxPrice !='' ">
+                and p.product_selling_price &gt; #{maxPrice}
+            </if>
+            <if test="categoryId != null and categoryId !='' ">
+                and p.category_id=#{categoryId}
+            </if>
+        </where>
+        order by p.product_id desc
+    </select>
+
+
+
+</mapper>
